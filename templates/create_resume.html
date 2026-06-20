@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Resume</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+
+<body>
+
+    <div class="resume-form">
+
+        <h1>
+            <i class="fa-solid fa-file-lines"></i>
+            Create Your Resume
+        </h1>
+
+        <form action="/save_resume" method="POST" enctype="multipart/form-data">
+
+            <label>Select Template</label>
+            <select name="template">
+                <option value="classic">Classic</option>
+                <option value="modern">Modern</option>
+                <option value="professional">Professional</option>
+            </select>
+
+            <label>Full Name</label>
+            <input type="text" name="fullname" placeholder="Enter Full Name" required>
+
+            <label>Email</label>
+            <input type="email" name="email" placeholder="Enter Email" required>
+
+            <label>Phone Number</label>
+            <input type="text" name="phone" placeholder="Enter Phone Number" required>
+
+            <label>Address</label>
+            <textarea name="address" placeholder="Enter Address"></textarea>
+
+            <label>Education</label>
+            <textarea name="education" placeholder="Enter Education Details"></textarea>
+
+            <label>Skills</label>
+            <textarea name="skills" placeholder="Enter Skills"></textarea>
+
+            <label>Projects</label>
+            <textarea name="projects" placeholder="Enter Projects"></textarea>
+
+            <label>Profile Photo</label>
+            <input type="file" name="photo" accept="image/*">
+
+            <button type="submit">
+                <i class="fa-solid fa-floppy-disk"></i>
+                Save Resume
+            </button>
+
+        </form>
+
+    </div>
+
+</body>
+
+</html>
+

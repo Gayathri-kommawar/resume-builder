@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - Resume Builder</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+</head>
+
+<body>
+
+    <div class="dashboard-container">
+
+        <div class="dashboard-header">
+
+            <h1 class="animate__animated animate__fadeInDown">
+                <i class="fa-solid fa-user"></i>
+                Welcome {{ name }}
+            </h1>
+
+            <p>
+                Build, manage and download professional resumes.
+            </p>
+
+        </div>
+
+        <!-- Statistics Cards -->
+
+        <div class="stats-container">
+
+            <div class="stat-card animate__animated animate__zoomIn">
+                <i class="fa-solid fa-file fa-2x"></i>
+                <h2>25</h2>
+                <p>Total Resumes</p>
+            </div>
+
+            <div class="stat-card animate__animated animate__zoomIn">
+                <i class="fa-solid fa-chart-line fa-2x"></i>
+                <h2>82%</h2>
+                <p>ATS Score</p>
+            </div>
+
+            <div class="stat-card animate__animated animate__zoomIn">
+                <i class="fa-solid fa-layer-group fa-2x"></i>
+                <h2>3</h2>
+                <p>Templates</p>
+            </div>
+
+        </div>
+
+        <!-- Menu -->
+
+        <div class="menu">
+
+            <a href="/create_resume">
+                <i class="fa-solid fa-file"></i>
+                Create Resume
+            </a>
+
+            <a href="/my_resumes">
+                <i class="fa-solid fa-folder-open"></i>
+                View Resumes
+            </a>
+
+            <a href="#">
+                <i class="fa-solid fa-download"></i>
+                Download Resume
+            </a>
+
+            <a href="#">
+                <i class="fa-solid fa-pen"></i>
+                Edit Resume
+            </a>
+
+            <a href="#">
+                <i class="fa-solid fa-trash"></i>
+                Delete Resume
+            </a>
+
+            <a href="/logout">
+                <i class="fa-solid fa-right-from-bracket"></i>
+                Logout
+            </a>
+
+        </div>
+
+        <!-- Quick Actions -->
+
+        <div class="resume-form animate__animated animate__fadeInUp" style="margin-top:30px;">
+
+            <h2>Quick Actions</h2>
+
+            <p>✔ Create a new resume using modern templates.</p>
+
+            <p>✔ Check ATS score before applying for jobs.</p>
+
+            <p>✔ Upload profile photo.</p>
+
+            <p>✔ Download resume as PDF.</p>
+
+        </div>
+    </div>   
+
+</body>
+
+</html>

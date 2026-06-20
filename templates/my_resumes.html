@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Resumes</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+
+<body>
+
+    <div class="dashboard-container">
+
+        <div class="dashboard-header">
+            <h1>Saved Resumes</h1>
+        </div>
+
+        <table class="resume-table">
+
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Photo</th>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Phone</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                {% for resume in resumes %}
+                <tr>
+
+                    <td>{{ resume[0] }}</td>
+
+                    <td>
+                        {% if resume[8] %}
+                        <img src="{{ url_for('static', filename='uploads/' + resume[8]) }}"
+                             class="profile-pic"
+                             alt="Photo">
+                        {% else %}
+                        <div class="no-photo">No Photo</div>
+                        {% endif %}
+                    </td>
+
+                    <td>{{ resume[1] }}</td>
+                    <td>{{ resume[2] }}</td>
+                    <td>{{ resume[3] }}</td>
+
+                    <td>
+
+                        <a href="/edit_resume/{{ resume[0] }}"
+                           class="action-btn edit-btn">
+                            Edit
+                        </a>
+
+                        <a href="/preview_resume/{{ resume[0] }}"
+                           class="action-btn preview-btn">
+                            Preview
+                        </a>
+
+                        <a href="/ats_checker/{{ resume[0] }}"
+                           class="action-btn ats-btn">
+                            ATS
+                        </a>
+
+                        <a href="/delete_resume/{{ resume[0] }}"
+                           class="action-btn delete-btn"
+                           onclick="return confirm('Delete this resume?')">
+                            Delete
+                        </a>
+
+                    </td>
+
+                </tr>
+                {% endfor %}
+            </tbody>
+
+        </table>
+
+        <div class="create-btn-container">
+            <a href="/create_resume" class="create-btn">
+                + Create New Resume
+            </a>
+        </div>
+
+    </div>
+
+</body>
+</html>
+

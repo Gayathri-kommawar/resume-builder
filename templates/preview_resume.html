@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Resume Preview</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+
+<body>
+
+    <div class="resume-form">
+
+
+        {% if resume[9] == 'modern' %}
+
+        <div style="background:linear-gradient(to right,#4f46e5,#06b6d4);
+            color:white;
+            padding:20px;
+            text-align:center;">
+            <h1>{{ resume[1] }}</h1>
+        </div>
+
+        {% else %}
+
+        <h1>{{ resume[1] }}</h1>
+
+        {% endif %}
+
+        <p><strong>Email:</strong> {{ resume[2] }}</p>
+        <p><strong>Phone:</strong> {{ resume[3] }}</p>
+        <p><strong>Address:</strong> {{ resume[4] }}</p>
+        <p>Photo Field: {{ resume[8] }}</p>
+        <p>Full Record: {{ resume }}</p>
+        {% if resume[8] %}
+        <div style="text-align:center; margin:20px 0;">
+            <img src="{{ url_for('static', filename='uploads/' + resume[8]) }}" alt="Profile Photo" width="150"
+                height="150" style="border-radius:50%; object-fit:cover; border:3px solid #4f46e5;">
+        </div>
+        {% endif %}
+        <hr>
+
+        <h2>Education</h2>
+        <p>{{ resume[5] }}</p>
+
+        <h2>Skills</h2>
+        <p>{{ resume[6] }}</p>
+
+        <h2>Projects</h2>
+        <p>{{ resume[7] }}</p>
+        <a href="/ats_checker/{{ resume[0] }}">
+            Check ATS Score
+        </a>
+
+        <!-- ✅ DOWNLOAD PDF BUTTON -->
+        <a href="/download_pdf/{{ resume[0] }}" style="
+            display:inline-block;
+            margin-top:20px;
+            padding:12px 20px;
+            background:#4f46e5;
+            color:white;
+            text-decoration:none;
+            border-radius:8px;
+            font-weight:bold;
+       ">
+            Download PDF
+        </a>
+
+
+    </div>
+
+</body>
+
+</html>

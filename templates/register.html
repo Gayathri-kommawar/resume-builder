@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register - Resume Builder</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+
+<body>
+
+<div class="form-container">
+
+    <h1>
+        <i class="fa-solid fa-user-plus"></i>
+        Register
+    </h1>
+
+    <form action="/register_user" method="POST">
+
+        <input
+            type="text"
+            name="fullname"
+            placeholder="Full Name"
+            required>
+
+        <input
+            type="email"
+            name="email"
+            placeholder="Enter Email"
+            required>
+
+        <input
+            type="password"
+            name="password"
+            placeholder="Create Password"
+            required>
+
+        <input
+            type="password"
+            name="confirm_password"
+            placeholder="Confirm Password"
+            required>
+
+        <button type="submit">
+            <i class="fa-solid fa-user-plus"></i>
+            Register
+        </button>
+
+    </form>
+
+    <div class="form-footer">
+        <p>
+            Already have an account?
+            <a href="/login">Login</a>
+        </p>
+    </div>
+
+</div>
+
+</body>
+</html>

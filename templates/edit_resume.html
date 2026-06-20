@@ -1,0 +1,51 @@
+```html
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Edit Resume</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+
+<div class="resume-form">
+
+<h1>Edit Resume</h1>
+
+<form action="/update_resume/{{ resume[0] }}" method="POST">
+
+<input type="text"
+       name="fullname"
+       value="{{ resume[1] }}"
+       required>
+
+<input type="email"
+       name="email"
+       value="{{ resume[2] }}"
+       required>
+
+<input type="text"
+       name="phone"
+       value="{{ resume[3] }}"
+       required>
+
+<textarea name="address">{{ resume[4] }}</textarea>
+
+<textarea name="education">{{ resume[5] }}</textarea>
+
+<textarea name="skills">{{ resume[6] }}</textarea>
+
+<textarea name="projects">{{ resume[7] }}</textarea>
+
+<button type="submit">
+    Update Resume
+</button>
+
+</form>
+
+</div>
+
+</body>
+</html>
+```
